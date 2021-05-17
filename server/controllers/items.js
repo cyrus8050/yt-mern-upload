@@ -11,18 +11,10 @@ export const getItems = async(req,res)=>{
     }
 }
 
-export const readTodos = async (req, res) => {
-    console.log('read todos')
-    try {
-        const Todos = await Item.find();
-        res.status(200).json(Todos);
-    } catch (error) {
-        res.status(404).json({ message: error.message });
-    }
-}
+
 
 export const createItem = async(req,res)=>{
-    // console.log('createitem',req.body)
+    console.log('createitem',req.body)
     const item = new Item(req.body);
     try {
         await item.save();
